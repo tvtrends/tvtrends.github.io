@@ -1,0 +1,193 @@
+<!DOCTYPE HTML>
+<!--
+	Helios 1.5 by HTML5 UP
+	html5up.net | @n33co
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>TV Trends</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600" rel="stylesheet" type="text/css" />
+		<!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
+		<script src="js/jquery.dropotron.min.js"></script>
+		<script src="js/skel.min.js"></script>
+		<script src="js/skel-panels.min.js"></script>
+		<script src="js/init.js"></script>
+		<script src="js/jquery.min.js"></script>
+
+<script src="js/highcharts.js"></script>
+<script src="js/exporting.js"></script>
+
+<script>
+$(document).ready(function(){
+$('#getData').click(function(){
+    var res = {};
+    var title = "";
+	    $.ajax({
+
+	            url:'http://180.179.212.200/tvtrend/search?name=' + $('#tvshowname').val(),
+	            type:'GET',
+	            data :'',
+	            dataType :'json',
+	            async:false,
+	            success : function(resData){
+
+	                res = resData;
+	                title = resData.title;
+	                outline = resData.outline;
+	                rank = resData.rank;
+	                cast = resData.cast;
+	                year = resData.year;
+	                genre = resData.genre;
+	                runtime = resData.runtime;
+	                headerstring = rank + ".  " + title + " (" + year + ")"
+	                footerstring = "<strong>Cast:</strong> " + cast + "<strong>Genre:</strong> " + genre + "<strong>Runtime:</strong> " + runtime
+	                document.getElementById("headerstring").innerHTML=headerstring;
+	                document.getElementById("footerstring").innerHTML=footerstring;
+	            }
+	    });
+	     $('#container').highcharts({
+                chart: {
+                    type: 'spline'
+                },
+                title: {
+                text: ' ',
+                x: -20 //center
+            },
+            subtitle: {
+                text: ' ',
+                x: -20
+            },
+            xAxis: {
+                min: 0,
+                max: res.episodes_name.length,
+                tickInterval: ~~(res.episodes_name.length / 10)
+            },
+            yAxis: {
+                title: {
+                    text: ' '
+                },
+                tickInterval: 1,
+                // min: 0,
+                max: 10,
+                plotLines: [{
+                    value: 0,
+                    width: 1,
+                    color: '#808080'
+                }]
+            },
+            tooltip: {
+                valueSuffix: ''
+            },
+            legend: {
+                layout: 'vertical',
+                align: 'right',
+                verticalAlign: 'middle',
+                borderWidth: 0
+            },
+            series: [{
+                name: ' ',
+                data: res.episodes_ratings.map(Number)
+            }]
+        });
+    });
+	});
+
+</script>
+		<noscript>
+			<link rel="stylesheet" href="css/skel-noscript.css" />
+			<link rel="stylesheet" href="css/style.css" />
+			<link rel="stylesheet" href="css/style-desktop.css" />
+			<link rel="stylesheet" href="css/style-noscript.css" />
+		</noscript>
+		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie8.css" /><![endif]-->
+	</head>
+	<body class="homepage">
+
+		<!-- Header -->
+			<div id="header">
+
+				<!-- Inner -->
+					<div class="inner">
+						<header>
+							<h1><a href="#" id="logo">TV Trends</a></h1>
+							<hr />
+							<span class="byline">Explore your favorite TV show and visualize ratings</span>
+						</header>
+						<footer>
+							<div class="inputTxt"><input type="text" name = "tvshowname" id ="tvshowname" size="35"/></div></br>
+							<a href="#banner" id="getData" class="button circle scrolly">Submit</a>
+							<!-- <div class="inputBtn"><button id="getData">Get Data</button></div> -->
+							</div>
+						</footer>
+					</div>
+
+				<!-- Nav
+					<nav id="nav">
+						<ul>
+							<li><a href="index.html">Home</a></li>
+							<li>
+								<span>Dropdown</span>
+								<ul>
+									<li><a href="#">Lorem ipsum dolor</a></li>
+									<li><a href="#">Magna phasellus</a></li>
+									<li><a href="#">Etiam dolore nisl</a></li>
+									<li>
+										<span>And a submenu &hellip;</span>
+										<ul>
+											<li><a href="#">Lorem ipsum dolor</a></li>
+											<li><a href="#">Phasellus consequat</a></li>
+											<li><a href="#">Magna phasellus</a></li>
+											<li><a href="#">Etiam dolore nisl</a></li>
+										</ul>
+									</li>
+									<li><a href="#">Veroeros feugiat</a></li>
+								</ul>
+							</li>
+							<li><a href="left-sidebar.html">Left Sidebar</a></li>
+							<li><a href="right-sidebar.html">Right Sidebar</a></li>
+							<li><a href="no-sidebar.html">No Sidebar</a></li>
+						</ul>
+					</nav> -->
+
+			</div>
+
+		<!-- Banner -->
+			<div id="banner">
+				<h2><p id="headerstring"></p></h2>
+				<p id="footerstring"></p>
+				<div id="getData"></div>
+				<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+			</div>
+
+		<!-- Footer -->
+			<div id="footer">
+				<div class="container">
+
+							<!-- Contact -->
+								<section class="contact">
+									<header>
+										<h3>Awesome app by awesome people!</h3>
+									</header>
+									<p>Brought to you by Jyotiska NK and Dipanjan Sarkar</p>
+									<ul class="icons">
+										Powered by <a href="http://www.dataweave.in">DataWeave</a></br><img src="http://static.tumblr.com/koywj78/MrLm1ujuq/dataweavelogo.png"></img>
+										<!-- <li><a href="#" class="fa fa-twitter solo"><span>Twitter</span></a></li>
+										<li><a href="#" class="fa fa-facebook solo"><span>Facebook</span></a></li>
+										<li><a href="#" class="fa fa-google-plus solo"><span>Google+</span></a></li>
+										<li><a href="#" class="fa fa-pinterest solo"><span>Pinterest</span></a></li>
+										<li><a href="#" class="fa fa-dribbble solo"><span>Dribbble</span></a></li>
+										<li><a href="#" class="fa fa-linkedin solo"><span>Linkedin</span></a></li> -->
+									</ul>
+								</section>
+						</div>
+
+					</div>
+				</div>
+			</div>
+
+	</body>
+</html>
