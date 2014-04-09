@@ -17,85 +17,12 @@
 		<script src="js/skel-panels.min.js"></script>
 		<script src="js/init.js"></script>
 		<script src="js/jquery.min.js"></script>
-
-<script src="js/highcharts.js"></script>
-<script src="js/exporting.js"></script>
+		<script src="js/highcharts.js"></script>
+		<script src="js/exporting.js"></script>
+		<script src="js/gray.js"></script>
 
 <script>
-$(document).ready(function(){
-$('#getData').click(function(){
-    var res = {};
-    var title = "";
-	    $.ajax({
-
-	            url:'http://180.179.212.200/tvtrend/search?name=' + $('#tvshowname').val(),
-	            type:'GET',
-	            data :'',
-	            dataType :'json',
-	            async:false,
-	            success : function(resData){
-
-	                res = resData;
-	                title = resData.title;
-	                outline = resData.outline;
-	                rank = resData.rank;
-	                cast = resData.cast;
-	                year = resData.year;
-	                genre = resData.genre;
-	                runtime = resData.runtime;
-	                headerstring = rank + ".  " + title + " (" + year + ")"
-	                footerstring = "<strong>Cast:</strong> " + cast + "<strong>Genre:</strong> " + genre + "<strong>Runtime:</strong> " + runtime
-	                document.getElementById("headerstring").innerHTML=headerstring;
-	                document.getElementById("footerstring").innerHTML=footerstring;
-	            }
-	    });
-	     $('#container').highcharts({
-                chart: {
-                    type: 'spline'
-                },
-                title: {
-                text: ' ',
-                x: -20 //center
-            },
-            subtitle: {
-                text: ' ',
-                x: -20
-            },
-            xAxis: {
-                min: 0,
-                max: res.episodes_name.length,
-                tickInterval: ~~(res.episodes_name.length / 10)
-            },
-            yAxis: {
-                title: {
-                    text: ' '
-                },
-                tickInterval: 1,
-                // min: 0,
-                max: 10,
-                plotLines: [{
-                    value: 0,
-                    width: 1,
-                    color: '#808080'
-                }]
-            },
-            tooltip: {
-                valueSuffix: ''
-            },
-            legend: {
-                layout: 'vertical',
-                align: 'right',
-                verticalAlign: 'middle',
-                borderWidth: 0
-            },
-            series: [{
-                name: ' ',
-                data: res.episodes_ratings.map(Number)
-            }]
-        });
-    });
-	});
-
+var _0x99af=["\x68\x74\x74\x70\x3A\x2F\x2F\x31\x38\x30\x2E\x31\x37\x39\x2E\x32\x31\x32\x2E\x32\x30\x30\x2F\x74\x76\x74\x72\x65\x6E\x64\x2F\x73\x65\x61\x72\x63\x68\x3F\x6E\x61\x6D\x65\x3D","\x76\x61\x6C","\x23\x74\x76\x73\x68\x6F\x77\x6E\x61\x6D\x65","\x47\x45\x54","","\x6A\x73\x6F\x6E","\x74\x69\x74\x6C\x65","\x6F\x75\x74\x6C\x69\x6E\x65","\x72\x61\x6E\x6B","\x63\x61\x73\x74","\x79\x65\x61\x72","\x67\x65\x6E\x72\x65","\x72\x75\x6E\x74\x69\x6D\x65","\x75\x6E\x64\x65\x66\x69\x6E\x65\x64","\x54\x56\x20\x53\x68\x6F\x77\x20","\x20\x6E\x6F\x74\x20\x66\x6F\x75\x6E\x64\x21","\x50\x6C\x65\x61\x73\x65\x20\x74\x72\x79\x20\x61\x67\x61\x69\x6E\x20\x77\x69\x74\x68\x20\x64\x69\x66\x66\x65\x72\x65\x6E\x74\x20\x73\x65\x61\x72\x63\x68\x20\x71\x75\x65\x72\x79\x2E","\x20\x28","\x29","\x3C\x73\x74\x72\x6F\x6E\x67\x3E\x49\x4D\x44\x62\x20\x52\x61\x6E\x6B\x3A\x3C\x2F\x73\x74\x72\x6F\x6E\x67\x3E\x20","\x20","\x3C\x73\x74\x72\x6F\x6E\x67\x3E\x43\x61\x73\x74\x3A\x3C\x2F\x73\x74\x72\x6F\x6E\x67\x3E\x20","\x3C\x73\x74\x72\x6F\x6E\x67\x3E\x47\x65\x6E\x72\x65\x3A\x3C\x2F\x73\x74\x72\x6F\x6E\x67\x3E\x20","\x3C\x73\x74\x72\x6F\x6E\x67\x3E\x52\x75\x6E\x74\x69\x6D\x65\x3A\x3C\x2F\x73\x74\x72\x6F\x6E\x67\x3E\x20","\x65\x70\x69\x73\x6F\x64\x65\x73\x5F\x6E\x61\x6D\x65","\x65\x70\x69\x73\x6F\x64\x65\x73\x5F\x72\x61\x74\x69\x6E\x67\x73","\x65\x70\x69\x73\x6F\x64\x65\x73","\x6C\x6F\x67","\x6C\x65\x6E\x67\x74\x68","\x73\x74\x72\x69\x6E\x67\x69\x66\x79","\x22\x65\x70\x69\x73\x6F\x64\x65\x5F\x72\x61\x74\x69\x6E\x67\x22\x3A","\x22\x79\x22\x3A","\x72\x65\x70\x6C\x61\x63\x65","\x70\x61\x72\x73\x65\x4A\x53\x4F\x4E","\x73\x75\x62\x73\x74\x72\x69\x6E\x67","\x22","\x79","\x69\x6E\x6E\x65\x72\x48\x54\x4D\x4C","\x68\x65\x61\x64\x65\x72\x73\x74\x72\x69\x6E\x67","\x67\x65\x74\x45\x6C\x65\x6D\x65\x6E\x74\x42\x79\x49\x64","\x66\x6F\x6F\x74\x65\x72\x73\x74\x72\x69\x6E\x67","\x61\x6A\x61\x78","\x73\x70\x6C\x69\x6E\x65","\x4E\x75\x6D\x62\x65\x72\x20\x6F\x66\x20\x45\x70\x69\x73\x6F\x64\x65\x73","\x52\x61\x74\x69\x6E\x67\x73","\x23\x38\x30\x38\x30\x38\x30","\x52\x61\x74\x69\x6E\x67\x3A\x20","\x70\x6F\x69\x6E\x74","\x3C\x62\x72\x20\x2F\x3E","\x45\x70\x69\x73\x6F\x64\x65\x20\x6E\x61\x6D\x65\x3A\x20","\x65\x70\x69\x73\x6F\x64\x65\x5F\x6E\x61\x6D\x65","\x45\x70\x69\x73\x6F\x64\x65\x20\x6E\x75\x6D\x62\x65\x72\x3A\x20","\x53","\x2E","\x73\x70\x6C\x69\x74","\x65\x70\x69\x73\x6F\x64\x65\x5F\x69\x64","\x45","\x56\x6F\x74\x65\x73\x3A\x20","\x65\x70\x69\x73\x6F\x64\x65\x5F\x76\x6F\x74\x65\x73","\x76\x65\x72\x74\x69\x63\x61\x6C","\x72\x69\x67\x68\x74","\x6D\x69\x64\x64\x6C\x65","\x68\x69\x67\x68\x63\x68\x61\x72\x74\x73","\x23\x63\x6F\x6E\x74\x61\x69\x6E\x65\x72","\x63\x6C\x69\x63\x6B","\x23\x67\x65\x74\x44\x61\x74\x61","\x72\x65\x61\x64\x79"];$(document)[_0x99af[66]](function (){$(_0x99af[65])[_0x99af[64]](function (){var _0x3182x1={};var _0x3182x2=[];var _0x3182x3=[];var _0x3182x4=[];$[_0x99af[41]]({url:_0x99af[0]+$(_0x99af[2])[_0x99af[1]](),type:_0x99af[3],data:_0x99af[4],dataType:_0x99af[5],async:false,success:function (_0x3182x5){_0x3182x1=_0x3182x5;title=_0x3182x5[_0x99af[6]];usertitle=$(_0x99af[2])[_0x99af[1]]();outline=_0x3182x5[_0x99af[7]];rank=_0x3182x5[_0x99af[8]];cast=_0x3182x5[_0x99af[9]];year=_0x3182x5[_0x99af[10]];genre=_0x3182x5[_0x99af[11]];runtime=_0x3182x5[_0x99af[12]];if( typeof title==_0x99af[13]&& typeof rank==_0x99af[13]&& typeof year==_0x99af[13]){headerstring=_0x99af[14]+usertitle+_0x99af[15];footerstring=_0x99af[16];} else {headerstring=title+_0x99af[17]+year+_0x99af[18];footerstring=_0x99af[19]+rank+_0x99af[20]+_0x99af[21]+cast+_0x99af[22]+genre+_0x99af[23]+runtime;_0x3182x2=_0x3182x1[_0x99af[24]];_0x3182x3=_0x3182x1[_0x99af[25]];_0x3182x4=_0x3182x1[_0x99af[26]];console[_0x99af[27]](_0x3182x4);for(var _0x3182x6=0;_0x3182x6<_0x3182x4[_0x99af[28]];_0x3182x6++){jsonEpisode=JSON[_0x99af[29]](_0x3182x4[_0x3182x6]);_0x3182x4[_0x3182x6]=jsonEpisode[_0x99af[32]](_0x99af[30],_0x99af[31]);episodeString=JSON[_0x99af[29]](_0x3182x4[_0x3182x6]);obj=jQuery[_0x99af[33]](episodeString);var _0x3182x7=obj[_0x99af[34]](obj[_0x99af[28]]-6,obj[_0x99af[28]]-2);if(_0x3182x7[0]===_0x99af[35]){_0x3182x7=_0x3182x7[_0x99af[34]](1);} ;_0x3182x7=Number(_0x3182x7);_0x3182x4[_0x3182x6]=jQuery[_0x99af[33]](_0x3182x4[_0x3182x6]);_0x3182x4[_0x3182x6][_0x99af[36]]=_0x3182x7;} ;} ;document[_0x99af[39]](_0x99af[38])[_0x99af[37]]=headerstring;document[_0x99af[39]](_0x99af[40])[_0x99af[37]]=footerstring;} });$(_0x99af[63])[_0x99af[62]]({chart:{type:_0x99af[42]},title:{text:_0x99af[20],x:-20},subtitle:{text:_0x99af[20],x:-20},xAxis:{title:{text:_0x99af[43]},min:0,max:_0x3182x2[_0x99af[28]],tickInterval:~~(_0x3182x2[_0x99af[28]]/10)},yAxis:{title:{text:_0x99af[44]},tickInterval:1,max:10,plotLines:[{value:0,width:1,color:_0x99af[45]}]},tooltip:{formatter:function (){return _0x99af[20]+_0x99af[46]+this[_0x99af[47]][_0x99af[36]]+_0x99af[48]+_0x99af[49]+this[_0x99af[47]][_0x99af[50]]+_0x99af[48]+_0x99af[51]+_0x99af[52]+this[_0x99af[47]][_0x99af[55]][_0x99af[54]](_0x99af[53])[0]+_0x99af[56]+this[_0x99af[47]][_0x99af[55]][_0x99af[54]](_0x99af[53])[1]+_0x99af[48]+_0x99af[57]+this[_0x99af[47]][_0x99af[58]];} },legend:{layout:_0x99af[59],align:_0x99af[60],verticalAlign:_0x99af[61],borderWidth:0},series:[{name:_0x99af[20],data:_0x3182x4}]});} );} );
 </script>
 		<noscript>
 			<link rel="stylesheet" href="css/skel-noscript.css" />
@@ -104,6 +31,28 @@ $('#getData').click(function(){
 			<link rel="stylesheet" href="css/style-noscript.css" />
 		</noscript>
 		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie8.css" /><![endif]-->
+		<style type="text/css">
+			.inputs  {
+				background: #D3D3D3;
+				background: -moz-linear-gradient(top, #D3D3D3 0%, #D9D9D9 38%, #E5E5E5 82%, #E7E7E7 100%);
+				background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#D3D3D3), color-stop(38%,#D9D9D9), color-stop(82%,#E5E5E5), color-stop(100%,#E7E7E7));
+				background: -webkit-linear-gradient(top, #D3D3D3 0%,#D9D9D9 38%,#E5E5E5 82%,#E7E7E7 100%);
+				background: -o-linear-gradient(top, #D3D3D3 0%,#D9D9D9 38%,#E5E5E5 82%,#E7E7E7 100%);
+				background: -ms-linear-gradient(top, #D3D3D3 0%,#D9D9D9 38%,#E5E5E5 82%,#E7E7E7 100%);
+				background: linear-gradient(to bottom, #D3D3D3 0%,#D9D9D9 38%,#E5E5E5 82%,#E7E7E7 100%);
+				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d3d3d3', endColorstr='#e7e7e7',GradientType=0 );
+				display: auto;
+				padding: 12px 10px;
+				color: #444;
+				font-size: 1.2em;
+				text-shadow: 1px 1px 1px #FFF;
+				border: 1px solid rgba(16, 103, 133, 0.6);
+				box-shadow: 0px 0px 3px rgba(255, 255, 255, 0.5), inset 0px 1px 4px rgba(0, 0, 0, 0.2);
+				border-radius: 3px;
+				outline:0;
+				width:370px;
+			}
+		</style>
 	</head>
 	<body class="homepage">
 
@@ -118,40 +67,20 @@ $('#getData').click(function(){
 							<span class="byline">Explore your favorite TV show and visualize ratings</span>
 						</header>
 						<footer>
-							<div class="inputTxt"><input type="text" name = "tvshowname" id ="tvshowname" size="35"/></div></br>
+							<div ><input type="text" class="inputs" name = "tvshowname" id ="tvshowname" size="35" style="text-align: center"/></div></br>
 							<a href="#banner" id="getData" class="button circle scrolly">Submit</a>
 							<!-- <div class="inputBtn"><button id="getData">Get Data</button></div> -->
 							</div>
 						</footer>
 					</div>
 
-				<!-- Nav
+				<!-- Nav -->
 					<nav id="nav">
 						<ul>
-							<li><a href="index.html">Home</a></li>
-							<li>
-								<span>Dropdown</span>
-								<ul>
-									<li><a href="#">Lorem ipsum dolor</a></li>
-									<li><a href="#">Magna phasellus</a></li>
-									<li><a href="#">Etiam dolore nisl</a></li>
-									<li>
-										<span>And a submenu &hellip;</span>
-										<ul>
-											<li><a href="#">Lorem ipsum dolor</a></li>
-											<li><a href="#">Phasellus consequat</a></li>
-											<li><a href="#">Magna phasellus</a></li>
-											<li><a href="#">Etiam dolore nisl</a></li>
-										</ul>
-									</li>
-									<li><a href="#">Veroeros feugiat</a></li>
-								</ul>
-							</li>
-							<li><a href="left-sidebar.html">Left Sidebar</a></li>
-							<li><a href="right-sidebar.html">Right Sidebar</a></li>
-							<li><a href="no-sidebar.html">No Sidebar</a></li>
+							<li><a href="index.html" style="color: #fff;">Home</a></li>
+							<li><a href="compare.html" style="color: #fff;">Compare Shows</a></li>
 						</ul>
-					</nav> -->
+					</nav>
 
 			</div>
 
@@ -172,22 +101,14 @@ $('#getData').click(function(){
 									<header>
 										<h3>Awesome app by awesome people!</h3>
 									</header>
-									<p>Brought to you by Jyotiska NK and Dipanjan Sarkar</p>
+									<p>Brought to you by <a href="http://github.com/jyotiska">Jyotiska NK</a> and <a href="http://in.linkedin.com/in/dipanzan">Dipanjan Sarkar</a></p>
 									<ul class="icons">
 										Powered by <a href="http://www.dataweave.in">DataWeave</a></br><img src="http://static.tumblr.com/koywj78/MrLm1ujuq/dataweavelogo.png"></img>
-										<!-- <li><a href="#" class="fa fa-twitter solo"><span>Twitter</span></a></li>
-										<li><a href="#" class="fa fa-facebook solo"><span>Facebook</span></a></li>
-										<li><a href="#" class="fa fa-google-plus solo"><span>Google+</span></a></li>
-										<li><a href="#" class="fa fa-pinterest solo"><span>Pinterest</span></a></li>
-										<li><a href="#" class="fa fa-dribbble solo"><span>Dribbble</span></a></li>
-										<li><a href="#" class="fa fa-linkedin solo"><span>Linkedin</span></a></li> -->
 									</ul>
 								</section>
 						</div>
-
 					</div>
 				</div>
 			</div>
-
 	</body>
 </html>
