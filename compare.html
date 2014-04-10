@@ -103,9 +103,14 @@ $('#getData').click(function(){
                 year = resData.year;
                 genre = resData.genre;
                 runtime = resData.runtime;
-                if(typeof title == "undefined" && typeof rank == "undefined" && typeof year == "undefined")
+                if (usertitle == "")
                 {
-                    headerstring = "TV Show " + usertitle + " not found!";
+                	headerstring = "TV Show not given in first search box.";
+                    // footerstring = "Please enter a query.";
+                }
+                else if(typeof title == "undefined" && typeof rank == "undefined" && typeof year == "undefined")
+                {
+                    headerstring = "1TV Show " + usertitle + " not found!";
                     footerstring = "Please try again with different search query.";
                 }
                 else
@@ -155,9 +160,14 @@ $('#getData').click(function(){
                 year = resData.year;
                 genre = resData.genre;
                 runtime = resData.runtime;
-                if(typeof title == "undefined" && typeof rank == "undefined" && typeof year == "undefined")
+                if (usertitle == "")
                 {
-                    headerstring = "TV Show " + usertitle + " not found!";
+                	headerstring = "TV Show not given in second search box.";
+                    // footerstring = "Please enter a query.";
+                }
+                else if (typeof title == "undefined" && typeof rank == "undefined" && typeof year == "undefined")
+                {
+                    headerstring = "2TV Show " + usertitle + " not found!";
                     footerstring = "Please try again with different search query.";
                 }
                 else
