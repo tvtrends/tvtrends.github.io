@@ -17,13 +17,243 @@
 		<script src="js/skel-panels.min.js"></script>
 		<script src="js/init.js"></script>
 		<script src="js/jquery.min.js"></script>
-
 		<script src="js/highcharts.js"></script>
 		<script src="js/exporting.js"></script>
 		<script src="js/gray.js"></script>
+		<script src="js/typeahead.bundle.js"></script>
 
 <script>
-var _0x21d2=["","\x74\x69\x74\x6C\x65\x31","\x74\x69\x74\x6C\x65\x32","\x68\x74\x74\x70\x3A\x2F\x2F\x31\x38\x30\x2E\x31\x37\x39\x2E\x32\x31\x32\x2E\x32\x30\x30\x2F\x74\x76\x74\x72\x65\x6E\x64\x2F\x73\x65\x61\x72\x63\x68\x3F\x6E\x61\x6D\x65\x3D","\x76\x61\x6C","\x23\x74\x76\x73\x68\x6F\x77\x6E\x61\x6D\x65\x31","\x47\x45\x54","\x6A\x73\x6F\x6E","\x74\x69\x74\x6C\x65","\x6F\x75\x74\x6C\x69\x6E\x65","\x72\x61\x6E\x6B","\x63\x61\x73\x74","\x79\x65\x61\x72","\x67\x65\x6E\x72\x65","\x72\x75\x6E\x74\x69\x6D\x65","\x75\x6E\x64\x65\x66\x69\x6E\x65\x64","\x54\x56\x20\x53\x68\x6F\x77\x20","\x20\x6E\x6F\x74\x20\x66\x6F\x75\x6E\x64\x21","\x50\x6C\x65\x61\x73\x65\x20\x74\x72\x79\x20\x61\x67\x61\x69\x6E\x20\x77\x69\x74\x68\x20\x64\x69\x66\x66\x65\x72\x65\x6E\x74\x20\x73\x65\x61\x72\x63\x68\x20\x71\x75\x65\x72\x79\x2E","\x20\x28","\x29","\x3C\x73\x74\x72\x6F\x6E\x67\x3E","\x20","\x3C\x2F\x73\x74\x72\x6F\x6E\x67\x3E","\x3C\x73\x74\x72\x6F\x6E\x67\x3E\x43\x61\x73\x74\x3A\x3C\x2F\x73\x74\x72\x6F\x6E\x67\x3E\x20","\x3C\x73\x74\x72\x6F\x6E\x67\x3E\x47\x65\x6E\x72\x65\x3A\x3C\x2F\x73\x74\x72\x6F\x6E\x67\x3E\x20","\x3C\x73\x74\x72\x6F\x6E\x67\x3E\x52\x75\x6E\x74\x69\x6D\x65\x3A\x3C\x2F\x73\x74\x72\x6F\x6E\x67\x3E\x20","\x65\x70\x69\x73\x6F\x64\x65\x73\x5F\x6E\x61\x6D\x65","\x65\x70\x69\x73\x6F\x64\x65\x73\x5F\x72\x61\x74\x69\x6E\x67\x73","\x6C\x65\x6E\x67\x74\x68","\x65\x70\x69\x73\x6F\x64\x65\x73","\x73\x74\x72\x69\x6E\x67\x69\x66\x79","\x22\x65\x70\x69\x73\x6F\x64\x65\x5F\x72\x61\x74\x69\x6E\x67\x22\x3A","\x22\x79\x22\x3A","\x72\x65\x70\x6C\x61\x63\x65","\x70\x61\x72\x73\x65\x4A\x53\x4F\x4E","\x73\x75\x62\x73\x74\x72\x69\x6E\x67","\x22","\x79","\x69\x6E\x6E\x65\x72\x48\x54\x4D\x4C","\x68\x65\x61\x64\x65\x72\x73\x74\x72\x69\x6E\x67","\x67\x65\x74\x45\x6C\x65\x6D\x65\x6E\x74\x42\x79\x49\x64","\x66\x6F\x6F\x74\x65\x72\x73\x74\x72\x69\x6E\x67\x31","\x61\x6A\x61\x78","\x23\x74\x76\x73\x68\x6F\x77\x6E\x61\x6D\x65\x32","\x20\x76\x73\x2E\x20","\x66\x6F\x6F\x74\x65\x72\x73\x74\x72\x69\x6E\x67\x32","\x73\x70\x6C\x69\x6E\x65","\x4E\x75\x6D\x62\x65\x72\x20\x6F\x66\x20\x45\x70\x69\x73\x6F\x64\x65\x73","\x52\x61\x74\x69\x6E\x67\x73","\x23\x38\x30\x38\x30\x38\x30","\x52\x61\x74\x69\x6E\x67\x3A\x20","\x70\x6F\x69\x6E\x74","\x3C\x62\x72\x20\x2F\x3E","\x45\x70\x69\x73\x6F\x64\x65\x20\x6E\x61\x6D\x65\x3A\x20","\x65\x70\x69\x73\x6F\x64\x65\x5F\x6E\x61\x6D\x65","\x45\x70\x69\x73\x6F\x64\x65\x20\x6E\x75\x6D\x62\x65\x72\x3A\x20","\x53","\x2E","\x73\x70\x6C\x69\x74","\x65\x70\x69\x73\x6F\x64\x65\x5F\x69\x64","\x45","\x56\x6F\x74\x65\x73\x3A\x20","\x65\x70\x69\x73\x6F\x64\x65\x5F\x76\x6F\x74\x65\x73","\x76\x65\x72\x74\x69\x63\x61\x6C","\x72\x69\x67\x68\x74","\x6D\x69\x64\x64\x6C\x65","\x68\x69\x67\x68\x63\x68\x61\x72\x74\x73","\x23\x63\x6F\x6E\x74\x61\x69\x6E\x65\x72","\x63\x6C\x69\x63\x6B","\x23\x67\x65\x74\x44\x61\x74\x61","\x72\x65\x61\x64\x79"];$(document)[_0x21d2[71]](function (){$(_0x21d2[70])[_0x21d2[69]](function (){var _0xe53ax1={};var _0xe53ax2={};var _0xe53ax3=[];var _0xe53ax4=[];var _0xe53ax5=[];var _0xe53ax5=[];var _0xe53ax6=0;var _0xe53ax7=_0x21d2[0];var _0xe53ax8=_0x21d2[1];var _0xe53ax9=_0x21d2[2];var _0xe53axa=[];var _0xe53axb=[];$[_0x21d2[43]]({url:_0x21d2[3]+$(_0x21d2[5])[_0x21d2[4]](),type:_0x21d2[6],data:_0x21d2[0],dataType:_0x21d2[7],async:false,success:function (_0xe53axc){_0xe53ax1=_0xe53axc;title=_0xe53axc[_0x21d2[8]];_0xe53ax8=title;usertitle=$(_0x21d2[5])[_0x21d2[4]]();outline=_0xe53axc[_0x21d2[9]];rank=_0xe53axc[_0x21d2[10]];cast=_0xe53axc[_0x21d2[11]];year=_0xe53axc[_0x21d2[12]];genre=_0xe53axc[_0x21d2[13]];runtime=_0xe53axc[_0x21d2[14]];if( typeof title==_0x21d2[15]&& typeof rank==_0x21d2[15]&& typeof year==_0x21d2[15]){_0xe53ax7=_0x21d2[16]+usertitle+_0x21d2[17];footerstring=_0x21d2[18];} else {_0xe53ax7=_0xe53ax7+title+_0x21d2[19]+year+_0x21d2[20];footerstring=_0x21d2[21]+title+_0x21d2[22]+_0x21d2[23]+_0x21d2[24]+cast+_0x21d2[25]+genre+_0x21d2[26]+runtime;_0xe53ax3=_0xe53ax1[_0x21d2[27]];_0xe53ax5=_0xe53ax1[_0x21d2[28]];_0xe53ax6=_0xe53ax3[_0x21d2[29]];_0xe53axa=_0xe53ax1[_0x21d2[30]];for(var _0xe53axd=0;_0xe53axd<_0xe53axa[_0x21d2[29]];_0xe53axd++){jsonEpisode=JSON[_0x21d2[31]](_0xe53axa[_0xe53axd]);_0xe53axa[_0xe53axd]=jsonEpisode[_0x21d2[34]](_0x21d2[32],_0x21d2[33]);episodeString=JSON[_0x21d2[31]](_0xe53axa[_0xe53axd]);obj=jQuery[_0x21d2[35]](episodeString);var _0xe53axe=obj[_0x21d2[36]](obj[_0x21d2[29]]-6,obj[_0x21d2[29]]-2);if(_0xe53axe[0]===_0x21d2[37]){_0xe53axe=_0xe53axe[_0x21d2[36]](1);} ;_0xe53axe=Number(_0xe53axe);_0xe53axa[_0xe53axd]=jQuery[_0x21d2[35]](_0xe53axa[_0xe53axd]);_0xe53axa[_0xe53axd][_0x21d2[38]]=_0xe53axe;} ;} ;document[_0x21d2[41]](_0x21d2[40])[_0x21d2[39]]=_0xe53ax7;document[_0x21d2[41]](_0x21d2[42])[_0x21d2[39]]=footerstring;} });$[_0x21d2[43]]({url:_0x21d2[3]+$(_0x21d2[44])[_0x21d2[4]](),type:_0x21d2[6],data:_0x21d2[0],dataType:_0x21d2[7],async:false,success:function (_0xe53axc){_0xe53ax2=_0xe53axc;title=_0xe53axc[_0x21d2[8]];_0xe53ax9=title;usertitle=$(_0x21d2[44])[_0x21d2[4]]();outline=_0xe53axc[_0x21d2[9]];rank=_0xe53axc[_0x21d2[10]];cast=_0xe53axc[_0x21d2[11]];year=_0xe53axc[_0x21d2[12]];genre=_0xe53axc[_0x21d2[13]];runtime=_0xe53axc[_0x21d2[14]];if( typeof title==_0x21d2[15]&& typeof rank==_0x21d2[15]&& typeof year==_0x21d2[15]){_0xe53ax7=_0x21d2[16]+usertitle+_0x21d2[17];footerstring=_0x21d2[18];} else {_0xe53ax7=_0xe53ax7+_0x21d2[45]+title+_0x21d2[19]+year+_0x21d2[20];footerstring=_0x21d2[21]+title+_0x21d2[22]+_0x21d2[23]+_0x21d2[24]+cast+_0x21d2[25]+genre+_0x21d2[26]+runtime;_0xe53ax4=_0xe53ax2[_0x21d2[27]];episodes_ratings_2=_0xe53ax2[_0x21d2[28]];if(_0xe53ax4[_0x21d2[29]]>_0xe53ax6){_0xe53ax6=_0xe53ax4[_0x21d2[29]];} ;_0xe53axb=_0xe53ax2[_0x21d2[30]];for(var _0xe53axd=0;_0xe53axd<_0xe53axb[_0x21d2[29]];_0xe53axd++){jsonEpisode=JSON[_0x21d2[31]](_0xe53axb[_0xe53axd]);_0xe53axb[_0xe53axd]=jsonEpisode[_0x21d2[34]](_0x21d2[32],_0x21d2[33]);episodeString=JSON[_0x21d2[31]](_0xe53axb[_0xe53axd]);obj=jQuery[_0x21d2[35]](episodeString);var _0xe53axe=obj[_0x21d2[36]](obj[_0x21d2[29]]-6,obj[_0x21d2[29]]-2);if(_0xe53axe[0]===_0x21d2[37]){_0xe53axe=_0xe53axe[_0x21d2[36]](1);} ;_0xe53axe=Number(_0xe53axe);_0xe53axb[_0xe53axd]=jQuery[_0x21d2[35]](_0xe53axb[_0xe53axd]);_0xe53axb[_0xe53axd][_0x21d2[38]]=_0xe53axe;} ;} ;document[_0x21d2[41]](_0x21d2[40])[_0x21d2[39]]=_0xe53ax7;document[_0x21d2[41]](_0x21d2[46])[_0x21d2[39]]=footerstring;} });$(_0x21d2[68])[_0x21d2[67]]({chart:{type:_0x21d2[47]},title:{text:_0x21d2[22],x:-20},subtitle:{text:_0x21d2[22],x:-20},xAxis:{title:{text:_0x21d2[48]},min:0,max:_0xe53ax6,tickInterval:~~(_0xe53ax6/10)},yAxis:{title:{text:_0x21d2[49]},tickInterval:1,max:10,plotLines:[{value:0,width:1,color:_0x21d2[50]}]},tooltip:{formatter:function (){return _0x21d2[22]+_0x21d2[51]+this[_0x21d2[52]][_0x21d2[38]]+_0x21d2[53]+_0x21d2[54]+this[_0x21d2[52]][_0x21d2[55]]+_0x21d2[53]+_0x21d2[56]+_0x21d2[57]+this[_0x21d2[52]][_0x21d2[60]][_0x21d2[59]](_0x21d2[58])[0]+_0x21d2[61]+this[_0x21d2[52]][_0x21d2[60]][_0x21d2[59]](_0x21d2[58])[1]+_0x21d2[53]+_0x21d2[62]+this[_0x21d2[52]][_0x21d2[63]];} },legend:{layout:_0x21d2[64],align:_0x21d2[65],verticalAlign:_0x21d2[66],borderWidth:0},series:[{name:_0xe53ax8,data:_0xe53axa},{name:_0xe53ax9,data:_0xe53axb}]});} );} );
+$(document).ready(function(){
+var substringMatcher = function(strs) {
+  return function findMatches(q, cb) {
+    var matches, substringRegex;
+
+    // an array that will be populated with substring matches
+    matches = [];
+
+    // regex used to determine if a string contains the substring `q`
+    substrRegex = new RegExp(q, 'i');
+
+    // iterate through the pool of strings and for any string that
+    // contains the substring `q`, add it to the `matches` array
+    $.each(strs, function(i, str) {
+      if (substrRegex.test(str)) {
+        // the typeahead jQuery plugin expects suggestions to a
+        // JavaScript object, refer to typeahead docs for more info
+        matches.push({ value: str });
+      }
+    });
+
+    cb(matches);
+  };
+};
+
+var states = ['cosmos: a space-time odyssey', 'game of thrones', 'the wire', 'cosmos', 'leyla ile mecnun', 'arrested development', 'avatar: the last airbender', 'the angry video game nerd', 'house of cards', 'kaub\xf4i bibappu: cowboy bebop', 'freaks and geeks', 'rome', 'seinfeld', "monty python's flying circus", 'oz', 'shingeki no kyojin', 'the twilight zone', 'the daily show', 'only fools and horses....', 'south park', 'fawlty towers', 'dragon ball z', 'six feet under', 'hagane no renkinjutsushi', 'wan p\xeesu: one piece', 'breaking bad', 'planet earth', 'true detective', 'sherlock', 'the sopranos', 'firefly', 'i, claudius', 'life', 'dexter', 'batman: the animated series', 'desu n\xf4to', 'friends', 'the simpsons', 'twin peaks', 'top gear', 'house m.d.', 'pod prikritie', 'blackadder goes forth', 'deadwood', 'doctor who', 'qi', 'archer', "it's always sunny in philadelphia", 'suits', 'the office', 'battlestar galactica', 'downton abbey', 'the adventures of sherlock holmes', 'black adder the third', "chappelle's show", 'spaced', 'kenp\xfb denki beruseruk', 'the west wing', 'flight of the conchords', 'whose line is it anyway?', 'the walking dead', 'justified', 'futurama', 'spartacus: blood and sand', 'the office', 'the legend of korra', 'behzat \xc7.: bir ankara polisiyesi', 'the colbert report', 'friday night lights', 'dragon ball', 'k\xf4do giasu: hangyaku no rur\xfbsh', 'shameless', 'modern family', 'jeeves and wooster', 'the big bang theory', 'the shield', 'isler g\xfc\xe7ler', 'black-adder ii', 'curb your enthusiasm', 'the thick of it', 'impractical jokers', 'dragon ball z: doragon b\xf4ru zetto', 'the prisoner', 'the x files', 'supernatural', 'sons of anarchy', 'adventure time with finn & jake', 'boardwalk empire', 'mystery science theater 3000', 'mad men', 'dragon ball: doragon b\xf4r', 'hagane no renkinjutsushi', 'father ted', 'black mirror', 'dragon ball kai: doragon b\xf4ru kai', 'the originals', 'star trek: the next generation', 'peep show', 'community', 'homicide: life on the street', 'louie', "garth marenghi's darkplace", 'black books', 'samurai chanpur\xfb', 'luther', "agatha christie's poirot", 'the venture bros.', 'summer heights high', 'lost', 'prison break', 'naruto: shipp\xfbden', 'parks and recreation', 'terriers', 'red vs. blue: the blood gulch chronicles', 'homeland', 'scrubs', 'red dwarf', "late night with conan o'brien", 'rurouni kenshin', 'hellsing ultimate', 'fringe', 'extras', 'i love lucy', 'orange is the new black', 'the guild', 'entourage', 'the newsroom', 'coupling', "i'm alan partridge", 'carniv\xe0le', 'top gear', 'the muppet show', 'the bugs bunny show', 'how i met your mother', 'the it crowd', 'shin seiki evangerion', 'police squad!', 'mr. bean', 'justice league', 'vikings', 'young justice', 'bron/broen', 'doctor who', 'mythbusters', 'k\xf4kaku kid\xf4tai: stand alone complex', 'x-men', '24', 'hannibal', 'regular show', 'stargate sg-1', 'borgen', 'boston legal', 'm*a*s*h', 'psych', 'the inbetweeners', 'family guy', 'american horror story', 'pushing daisies', 'blue mountain state', 'invader zim', 'the adventures of pete & pete', 'my so-called life', 'star trek', 'veronica mars', 'life on mars', 'the wonder years', 'the mighty boosh', 'farscape', 'green wing', 'white collar', 'the boondocks', 'get smart', 'party down', 'the adventures of tintin', 'an idiot abroad', 'flcl', 'all in the family', 'the bugs bunny/looney tunes comedy hour', 'trailer park boys', 'californication', 'trigun', "foyle's war", 'misfits', "the avengers: earth's mightiest heroes", 'southland', 'call the midwife', 'person of interest', 'the league', 'orphan black', 'broadchurch', "'allo 'allo!", 'are you afraid of the dark?', 'avrupa yakasi', 'rescue me', 'courage the cowardly dog', 'castle', 'utopia', 'the andy griffith show', 'almost human', 'life', 'the black adder', 'banshee', 'spooks', 'eastbound & down', 'in treatment', '30 rock', 'workaholics', 'kings', 'chuck', 'spider-man', 'derek', 'criminal minds', 'arrow', 'babylon 5', 'tron: uprising', 'home movies', 'beast wars: transformers', 'superman', 'columbo', 'ezel', 'dead like me', 'queer as folk', 'day break', 'the vampire diaries', 'hustle', 'metalocalypse', 'wonderfalls', 'forbrydelsen', 'samurai jack', 'hell on wheels', 'sesame street', 'studio 60 on the sunset strip', 'the late late show with craig ferguson', 'man vs. wild', 'erufen r\xeeto', 'strike back', 'northern exposure', 'skins', 'the blacklist', 'buffy the vampire slayer', 'masters of sex', 'the good wife', 'the black donnellys', 'the americans', "that '70s show", 'penn & teller: bullshit!', 'the fosters', 'conan', 'the tudors', 'married with children', 'saturday night live', 'bates motel', 'weeds', 'better off ted', 'the mentalist', 'kureimoa', 'once upon a time', 'the good guys', 'true blood', 'black sails', 'stargate: atlantis', 'damages', 'law & order: special victims unit', 'boss', 'absolutely fabulous', 'lucky louie', 'wolverine and the x-men', 'spongebob squarepants', 'ncis: naval criminal investigative service', "rocko's modern life", 'miranda', 'batman beyond', "dexter's laboratory", 'undeclared', 'burn notice', 'ray donovan', 'brooklyn nine-nine', 'ducktales', 'the young ones', 'bottom', 'the fall', "da vinci's demons", 'revenge', 'journeyman', 'bones', 'quantum leap', 'bleach', 'the ricky gervais show', 'the addams family', 'ripper street', 'treme', 'boy meets world', 'the killing', 'gargoyles', 'pretty little liars', 'lilyhammer', 'shameless', 'the unit', 'millennium', 'angel', 'the riches', 'raising hope', 'lie to me', 'the fresh prince of bel-air', 'malcolm in the middle', 'longmire', 'gilmore girls', 'in living color', 'scandal', 'the hitch hikers guide to the galaxy', 'recess', 'parenthood', 'da ali g show', 'animaniacs', 'teenage mutant ninja turtles', 'bored to death', 'star trek: deep space nine', "foster's home for imaginary friends", 'merlin', 'daria', 'wilfred', 'scooby doo, where are you!', 'kenny vs. spenny', "bob's burgers", 'mortal kombat: legacy', 'jericho', 'the vicar of dibley', 'frasier', 'pinky and the brain', 'harvey birdman, attorney at law', 'the big c', 'reno 911!', 'tales from the crypt', 'transformers', 'monk', 'how to make it in america', 'the borgias', 'elementary', 'phineas and ferb', 'naruto', 'new girl', 'my little pony: friendship is magic', 'eureka', 'thundercats', 'newsradio', 'inuyasha', 'awake', 'graceland', 'reaper', 'devious maids', 'kenan & kel', 'the tick', 'sleepy hollow', 'the hour', 'awkward.', 'goosebumps', 'robot chicken', 'third watch', 'lost girl', 'leverage', 'rubicon', 'hart of dixie', 'star wars: the clone wars', 'veep', 'keeping up appearances', 'portlandia', 'episodes', 'grim & evil', 'the amazing race', 'darkwing duck', 'aqua teen hunger force', 'real time with bill maher', 'torchwood', 'happy endings', 'macgyver', 'my name is earl', 'reign', 'switched at birth', 'united states of tara', 'john doe', 'csi: crime scene investigation', 'being human', 'continuum', 'cheers', 'gavin & stacey', 'brotherhood', 'the dresden files', 'human target', 'even stevens', '3rd rock from the sun', 'teen wolf', 'heroes', 'hey arnold!', 'talespin', 'nip/tuck', 'eli stone', 'dollhouse', 'the outer limits', 'grimm', 'the golden girls', 'the chicago code', 'the pink panther show', "grey's anatomy", 'nikita', 'er', 'sgu stargate universe', 'the penguins of madagascar', 'tiny toon adventures', 'degrassi: the next generation', 'star trek: voyager', 'tosh.0', 'moonlighting', 'moonlight', 'dracula', 'big love', 'law & order', 'i dream of jeannie', 'go on', 'survivors', 'smash', 'my family', 'video game high school', 'the a-team', "life's too short", "three's company", 'midsomer murders', 'little britain', 'terminator: the sarah connor chronicles', "chip 'n' dale rescue rangers", 'one tree hill', 'the bridge', 'doug', 'chicago fire', 'flashpoint', 'witches of east end', 'american dad!', 'bewitched', 'kyle xy', 'the following', 'legend of the seeker', 'the finder', 'space: above and beyond', 'franklin & bash', 'star wars: clone wars', 'haven', 'nashville', 'warehouse 13', 'flashforward', 'alias', 'nurse jackie', 'invasion', 'sailor moon', 'masters of horror', 'rookie blue', 'beavis and butt-head', 'cold case', 'bunheads', 'robin hood', 'still standing', 'life unexpected', 'magnum, p.i.', 'roswell', 'the cosby show', 'last resort', 'early edition', 'the king of queens', 'dinosaurs', 'the o.c.', 'rizzoli & isles', "harper's island", 'girls', 'hawaii five-0', 'the 4400', 'the closer', 'the glades', 'rugrats', 'the flintstones', 'magic city', 'copper', 'the l word', 'the ren & stimpy show', 'new amsterdam', 'la femme nikita', 'tru calling', 'smallville', 'ed', 'happy days', 'greek', 'the secret circle', 'the tomorrow people', 'miami vice', 'the pretender', 'samantha who?', 'enterprise', "gilligan's island", 'touch', 'the dead zone', 'the angry beavers', 'grounded for life', 'las vegas', 'desperate housewives', 'arthur', 'sliders', 'life on mars', 'he-man and the masters of the universe', 'batman', 'perception', 'project runway', 'sanctuary', 'drake & josh', 'being erica', 'everwood', "ned's declassified school survival guide", 'outsourced', 'ellen: the ellen degeneres show', 'garfield and friends', 'kitchen nightmares', 'blue bloods', 'teen titans', 'alf', 'covert affairs', 'law & order: criminal intent', 'falling skies', 'vegas', 'the fairly oddparents', 'johnny bravo', 'the war at home', 'heroes', 'make it or break it', 'hunted', 'being human', 'two guys, a girl and a pizza place', 'pawn stars', 'gossip girl', 'nypd blue', 'clerks', 'dark angel', 'spin city', 'the lying game', 'secret diary of a call girl', 'house of lies', 'jane by design', "ed, edd, 'n' eddy", 'the middle', 'highlander', 'alphas', 'suburgatory', 'two and a half men', 'wings', 'drop dead diva', 'hemlock grove', 'defying gravity', 'becker', '21 jump street', 'h2o: just add water', 'under the dome', 'helix', 'halo 4: forward unto dawn', 'brothers & sisters', 'rules of engagement', 'the gates', 'hot in cleveland', 'primeval', 'will & grace', 'everybody loves raymond', 'jackass', 'the mindy project', 'family ties', 'breaking in', 'caprica', 'the crazy ones', 'alcatraz', 'shark', 'last man standing', 'duck dynasty', 'everybody hates chris', 'dirty sexy money', 'fairly legal', 'breakout kings', 'pok\xe9mon', 'little house on the prairie', 'jackie chan adventures', 'the nine lives of chloe king', 'beauty and the beast', 'in plain sight', 'agents of s.h.i.e.l.d.', 'king of the hill', 'hung', 'baby daddy', 'once upon a time in wonderland', 'home improvement', 'intelligence', 'the powerpuff girls', "don't trust the b---- in apartment 23", 'surface', 'melissa & joey', 'dallas', 'madtv', '8 simple rules... for dating my teenage daughter', 'men at work', 'dragon ball gt', 'cougar town', 'charmed', 'the sarah silverman program.', 'the oblongs...', 'good luck charlie', 'the jetsons', '2 broke girls', 'the event', 'saved by the bell', 'kurtlar vadisi', 'mom', 'poketto monsut\xe2', '666 park avenue', 'body of proof', 'roseanne', 'just shoot me!', 'glee', 'the odyssey', 'the drew carey show', 'v', 'no ordinary family', 'ringer', 'hostages', 'pan am', 'dirt', "hell's kitchen", 'the carrie diaries', 'royal pains', 'csi: ny', 'happy tree friends', 'the new adventures of old christine', 'kim possible', 'the mask', 'battlestar galactica', 'necessary roughness', 'tim and eric awesome show, great job!', 'defiance', 'the incredible hulk', 'drawn together', 'victorious', 'digimon: digital monsters', 'numb3rs', 'late show with david letterman', 'crossing jordan', 'joan of arcadia', 'a gifted man', 'dallas', 'medium', 'missing', 'knight rider', 'the voice', 'persons unknown', 'the client list', 'storage wars', 'ally mcbeal', 'the river', 'so you think you can dance', 'kingdom hospital', 'the wild thornberrys', 'the new normal', 'terra nova', 'revolution', 'party of five', 'xena: warrior princess', 'hellcats', 'what i like about yo', 'felicity', 'george lopez', 'mad about yo', 'hercules', 'andromeda', 'mike & molly', 'family matters', 'sabrina, the teenage witch', 'without a trace', 'sex and the city', 'survivor', 'inspector gadget', 'the nanny', 'late night with jimmy fallon', 'anger management', 'gcb', 'murder, she wrote', 'ncis: los angeles', 'lois & clark: the new adventures of superman', 'wizards of waverly place', 'cow and chicken', 'captain planet and the planeteers', 'my wife and kids', 'the brady bunch', 'the neighbors', 'dr. quinn, medicine woman', 'growing pains', 'catdog', 'private practice', 'y\xfbgi\xf4', 'unforgettable', 'ugly betty', "dawson's creek", 'sonny with a chance', 'hercules: the legendary journeys', 'jag', 'csi: miami', 'according to jim', 'lizzie mcguire', 'dharma & greg', 'accidentally on purpose', 'mighty morphin power rangers', "punk'd", 'the suite life on deck', '90210', 'the suite life of zack and cody', 'bionic woman', 'knight rider', 'zoey 101', 'whitney', 'walker, texas ranger', 'shake it up!', '7th heaven', 'dancing with the stars', 'american idol: the search for a superstar', 'the hills', 'full house', 'icarly', 'lipstick jungle', 'up all night', 'eastwick', 'step by step', 'reba', 'ghost whisperer', 'muhtesem y\xfczyil', "that's so raven", 'beverly hills, 90210', 'sister, sister', 'joey', 'the cape', 'melrose place', 'the cleveland show', "america's next top model", 'the tonight show with jay leno', 'big brother', 'baywatch', 'the secret life of the american teenager', 'hannah montana', 'jersey shore', 'keeping up with the kardashians'];
+
+$('#tvshowname1').typeahead({
+  hint: false,
+  highlight: true,
+  minLength: 3,
+},
+{
+  name: 'states',
+  displayKey: 'value',
+  source: substringMatcher(states)
+});
+
+$('#tvshowname2').typeahead({
+  hint: false,
+  highlight: true,
+  minLength: 3,
+},
+{
+  name: 'states',
+  displayKey: 'value',
+  source: substringMatcher(states)
+});
+
+$('#getData').click(function(){
+    var res1 = {};
+    var res2 = {}
+    var episodes_name_1 = [];
+    var episodes_name_2 = [];
+    var episodes_ratings_1 = [];
+    var episodes_ratings_1 = [];
+    var maxEpisodeLength = 0;
+    var headerstring = "";
+    var title1 = "title1";
+    var title2 = "title2";
+    var jsonString1 = [];
+    var jsonString2 = [];
+
+        $.ajax({
+            url:'http://180.179.212.200/tvtrend/search?name=' + $('#tvshowname1').val(),
+            type:'GET',
+            data :'',
+            dataType :'json',
+            async:false,
+            success : function(resData){
+                res1 = resData;
+                title = resData.title;
+                title1 = title;
+                usertitle = $('#tvshowname1').val();
+                outline = resData.outline;
+                rank = resData.rank;
+                cast = resData.cast;
+                year = resData.year;
+                genre = resData.genre;
+                runtime = resData.runtime;
+                if(typeof title == "undefined" && typeof rank == "undefined" && typeof year == "undefined")
+                {
+                    headerstring = "TV Show " + usertitle + " not found!";
+                    footerstring = "Please try again with different search query.";
+                }
+                else
+                {
+                    headerstring = headerstring + title + " (" + year + ")";
+                    footerstring = "<strong>" + title + " " + "</strong>" + "<strong>Cast:</strong> " + cast + "<strong>Genre:</strong> " + genre + "<strong>Runtime:</strong> " + runtime;
+                    episodes_name_1 = res1.episodes_name;
+                    episodes_ratings_1 = res1.episodes_ratings;
+                    maxEpisodeLength = episodes_name_1.length;
+
+                    jsonString1 = res1.episodes;
+                    for (var i=0; i<jsonString1.length; i++) {
+                        jsonEpisode = JSON.stringify(jsonString1[i])
+                        jsonString1[i] = jsonEpisode.replace("\"episode_rating\":", "\"y\":");
+                        episodeString = JSON.stringify(jsonString1[i])
+                        obj = jQuery.parseJSON(episodeString);
+
+                        var rating = obj.substring(obj.length-6,obj.length-2);
+                        if (rating[0] === "\""){
+                            rating = rating.substring(1);
+                        }
+                        rating = Number(rating)
+                        jsonString1[i] = jQuery.parseJSON(jsonString1[i]);
+                        jsonString1[i]["y"] = rating;
+                    }
+                }
+
+                document.getElementById("headerstring").innerHTML=headerstring;
+                document.getElementById("footerstring1").innerHTML=footerstring;
+            }
+        });
+
+        $.ajax({
+            url:'http://180.179.212.200/tvtrend/search?name=' + $('#tvshowname2').val(),
+            type:'GET',
+            data :'',
+            dataType :'json',
+            async:false,
+            success : function(resData){
+                res2 = resData;
+                title = resData.title;
+                title2 = title;
+                usertitle = $('#tvshowname2').val();
+                outline = resData.outline;
+                rank = resData.rank;
+                cast = resData.cast;
+                year = resData.year;
+                genre = resData.genre;
+                runtime = resData.runtime;
+                if(typeof title == "undefined" && typeof rank == "undefined" && typeof year == "undefined")
+                {
+                    headerstring = "TV Show " + usertitle + " not found!";
+                    footerstring = "Please try again with different search query.";
+                }
+                else
+                {
+                    headerstring = headerstring + " vs. " + title + " (" + year + ")";
+                    footerstring = "<strong>" + title + " " + "</strong>" + "<strong>Cast:</strong> " + cast + "<strong>Genre:</strong> " + genre + "<strong>Runtime:</strong> " + runtime;
+                    episodes_name_2 = res2.episodes_name;
+                    episodes_ratings_2 = res2.episodes_ratings;
+
+                    if(episodes_name_2.length > maxEpisodeLength)
+                    {
+                        maxEpisodeLength = episodes_name_2.length;
+                    }
+
+                    jsonString2 = res2.episodes;
+                    for (var i=0; i<jsonString2.length; i++) {
+                        jsonEpisode = JSON.stringify(jsonString2[i])
+                        jsonString2[i] = jsonEpisode.replace("\"episode_rating\":", "\"y\":");
+                        episodeString = JSON.stringify(jsonString2[i])
+                        obj = jQuery.parseJSON(episodeString);
+
+                        var rating = obj.substring(obj.length-6,obj.length-2);
+                        if (rating[0] === "\""){
+                            rating = rating.substring(1);
+                        }
+                        rating = Number(rating)
+                        jsonString2[i] = jQuery.parseJSON(jsonString2[i]);
+                        jsonString2[i]["y"] = rating;
+                    }
+                }
+
+                document.getElementById("headerstring").innerHTML=headerstring;
+                document.getElementById("footerstring2").innerHTML=footerstring;
+            }
+        });
+
+        $('#container').highcharts({
+            chart: {
+                type: 'spline'
+            },
+            title: {
+                text: ' ',
+                x: -20 //center
+            },
+            subtitle: {
+                text: ' ',
+                x: -20
+            },
+            xAxis: {
+                title: {
+                    text: 'Number of Episodes'
+                },
+                min: 0,
+                max: maxEpisodeLength,
+                tickInterval: ~~(maxEpisodeLength / 10)
+            },
+            yAxis: {
+                title: {
+                    text: 'Ratings'
+                },
+                tickInterval: 1,
+                // min: 0,
+                max: 10,
+                plotLines: [{
+                    value: 0,
+                    width: 1,
+                    color: '#808080'
+                }]
+            },
+            tooltip: {
+                formatter: function() {return ' ' +
+                'Rating: ' + this.point.y + '<br />' +
+                'Episode name: ' + this.point.episode_name + '<br />' +
+                'Episode number: ' + "S" + this.point.episode_id.split(".")[0] + "E" + this.point.episode_id.split(".")[1] + '<br />' +
+                'Votes: ' + this.point.episode_votes;
+                }
+            },
+            legend: {
+                layout: 'vertical',
+                align: 'right',
+                verticalAlign: 'middle',
+                borderWidth: 0
+            },
+            series: [{
+                name: title1,
+                data: jsonString1
+            },
+            {
+                name: title2,
+                data: jsonString2
+            }
+            ]
+        });
+    });
+});
+
 </script>
 		<noscript>
 			<link rel="stylesheet" href="css/skel-noscript.css" />
@@ -54,6 +284,188 @@ var _0x21d2=["","\x74\x69\x74\x6C\x65\x31","\x74\x69\x74\x6C\x65\x32","\x68\x74\
 				width:370px;
 			}
 		</style>
+		<style type="text/css">
+			/* custom font! */
+			/* ------------ */
+
+			@font-face {
+			  font-family: Prociono;
+			  src: url(../font/Prociono-Regular-webfont.ttf);
+			}
+
+			/* scaffolding */
+			/* ----------- */
+
+			html {
+			  overflow-y: scroll;
+			  *overflow-x: hidden;
+			}
+
+			.container {
+			  max-width: 750px;
+			  margin: 0 auto;
+			  text-align: center;
+			}
+
+			.tt-dropdown-menu,
+			.gist {
+			  text-align: left;
+			}
+
+			/* base styles */
+			/* ----------- */
+
+			html {
+			  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+			  font-size: 18px;
+			  line-height: 1.2;
+			  color: #333;
+			}
+
+			a {
+			  color: #03739c;
+			  text-decoration: none;
+			}
+
+			a:hover {
+			  text-decoration: underline;
+			}
+
+			.table-of-contents li {
+			  display: inline-block;
+			  *display: inline;
+			  zoom: 1;
+			}
+
+			.table-of-contents li a {
+			  font-size: 16px;
+			  color: #fff;
+			}
+
+			.title,
+			.example-name {
+			  font-family: Prociono;
+			}
+
+			p + p {
+			  margin: 30px 0 0 0;
+			}
+
+			/* site theme */
+			/* ---------- */
+
+			.title {
+			  margin: 20px 0 0 0;
+			  font-size: 64px;
+			}
+
+			.example {
+			  padding: 30px 0;
+			}
+
+			.example-name {
+			  margin: 20px 0;
+			  font-size: 32px;
+			}
+
+			.demo {
+			  position: relative;
+			  *z-index: 1;
+			  margin: 50px 0;
+			}
+
+			.typeahead,
+			.tt-query,
+			.tt-hint {
+			  width: 396px;
+			  height: 30px;
+			  padding: 8px 12px;
+			  font-size: 24px;
+			  line-height: 30px;
+			  border: 2px solid #ccc;
+			  -webkit-border-radius: 8px;
+			     -moz-border-radius: 8px;
+			          border-radius: 8px;
+			  outline: none;
+			}
+
+			.typeahead {
+			  background-color: #fff;
+			}
+
+			.typeahead:focus {
+			  border: 2px solid #0097cf;
+			}
+
+			.tt-query {
+			  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+			     -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+			          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+			}
+
+			.tt-hint {
+			  color: #000
+			}
+
+			.tt-dropdown-menu {
+			  width: 422px;
+			  margin-top: 12px;
+			  padding: 8px 0;
+			  background-color: #fff;
+			  border: 1px solid #ccc;
+			  border: 1px solid rgba(0, 0, 0, 0.2);
+			  -webkit-border-radius: 8px;
+			     -moz-border-radius: 8px;
+			          border-radius: 8px;
+			  -webkit-box-shadow: 0 5px 10px rgba(0,0,0,.2);
+			     -moz-box-shadow: 0 5px 10px rgba(0,0,0,.2);
+			          box-shadow: 0 5px 10px rgba(0,0,0,.2);
+			}
+
+			.tt-suggestion {
+			  padding: 3px 20px;
+			  font-size: 18px;
+			  line-height: 24px;
+			  color: #000;
+			}
+
+			.tt-suggestion.tt-cursor {
+			  color: #fff;
+			  background-color: #0097cf;
+
+			}
+
+			.tt-suggestion p {
+			  margin: 0;
+			}
+
+			.gist {
+			  font-size: 14px;
+			}
+
+			/* example specific styles */
+			/* ----------------------- */
+
+			#custom-templates .empty-message {
+			  padding: 5px 10px;
+			 text-align: center;
+			}
+
+			#multiple-datasets .league-name {
+			  margin: 0 20px 5px 20px;
+			  padding: 3px 0;
+			  border-bottom: 1px solid #ccc;
+			}
+
+			#scrollable-dropdown-menu .tt-dropdown-menu {
+			  max-height: 150px;
+			  overflow-y: auto;
+			}
+
+			#rtl-support .tt-dropdown-menu {
+			  text-align: right;
+			}
+		</style>
 	</head>
 	<body class="homepage">
 
@@ -68,8 +480,8 @@ var _0x21d2=["","\x74\x69\x74\x6C\x65\x31","\x74\x69\x74\x6C\x65\x32","\x68\x74\
 							<span class="byline">Compare head-to-head ratings of two TV shows</span>
 						</header>
 						<footer>
-							<div ><input type="text" class="inputs" name = "tvshowname1" id ="tvshowname1" size="35" style="text-align: center"/></div></br>
-							<div ><input type="text" class="inputs" name = "tvshowname2" id ="tvshowname2" size="35" style="text-align: center"/></div></br>
+							<div ><input type="text" name = "tvshowname1" id ="tvshowname1" size="35" style="text-align: center"/></div></br>
+							<div ><input type="text" name = "tvshowname2" id ="tvshowname2" size="35" style="text-align: center"/></div></br>
 							<a href="#banner" id="getData" class="button circle scrolly">Submit</a>
 							<!-- <div class="inputBtn"><button id="getData">Get Data</button></div> -->
 							</div>
