@@ -12,11 +12,13 @@
 		<meta name="keywords" content="" />
 		<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600" rel="stylesheet" type="text/css" />
 		<!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
+    <link rel="stylesheet" href="css/jquery-ui-1.10.4.custom.min.css">
 		<script src="js/jquery.dropotron.min.js"></script>
 		<script src="js/skel.min.js"></script>
 		<script src="js/skel-panels.min.js"></script>
 		<script src="js/init.js"></script>
 		<script src="js/jquery.min.js"></script>
+    <script src="js/jquery-ui-1.10.4.custom.min.js"></script>
 		<script src="js/highcharts.js"></script>
 		<script src="js/exporting.js"></script>
 		<script src="js/gray.js"></script>
@@ -62,11 +64,34 @@ $('#tvshowname').typeahead({
   source: substringMatcher(states)
 });
 
+$(function() {
+  $( "#dialog" ).dialog({
+    autoOpen: false,
+    show: {
+      effect: "blind",
+      duration: 500
+    },
+    hide: {
+      effect: "explode",
+      duration: 500
+    }
+  });
+});
+
+
 $('#getData').click(function(){
     var res = {};
     var episodes_name = [];
     var episodes_ratings = [];
     var jsonString = [];
+
+    show = $('#tvshowname').val();
+    if(!show || 0 === show.length){
+      $( "#dialog" ).dialog( "open" );
+
+    }
+    else{
+
         $.ajax({
             url:'http://180.179.212.200/tvtrend/search?name=' + $('#tvshowname').val(),
             type:'GET',
@@ -170,6 +195,7 @@ $('#getData').click(function(){
                 data: jsonString
             }]
         });
+      }
     });
 });
 </script>
@@ -414,6 +440,9 @@ $('#getData').click(function(){
 				<h2><p id="headerstring"></p></h2>
 				<p id="footerstring"></p>
 				<div id="getData"></div>
+        <div id="dialog" title="Error">
+          Please Enter a TV Show!
+        </div>
 				<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
 			</div>
 

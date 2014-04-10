@@ -5,28 +5,30 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
-	<head>
-		<title>TV Trends</title>
-		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-		<meta name="description" content="" />
-		<meta name="keywords" content="" />
-		<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600" rel="stylesheet" type="text/css" />
-		<!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
-		<script src="js/jquery.dropotron.min.js"></script>
-		<script src="js/skel.min.js"></script>
-		<script src="js/skel-panels.min.js"></script>
-		<script src="js/init.js"></script>
-		<script src="js/jquery.min.js"></script>
-		<script src="js/highcharts.js"></script>
-		<script src="js/exporting.js"></script>
-		<script src="js/gray.js"></script>
-		<script src="js/typeahead.bundle.js"></script>
+<head>
+  <title>TV Trends</title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta name="description" content="" />
+  <meta name="keywords" content="" />
+  <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600" rel="stylesheet" type="text/css" />
+  <!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
+  <link rel="stylesheet" href="css/jquery-ui-1.10.4.custom.min.css">
+  <script src="js/jquery.dropotron.min.js"></script>
+  <script src="js/skel.min.js"></script>
+  <script src="js/skel-panels.min.js"></script>
+  <script src="js/init.js"></script>
+  <script src="js/jquery.min.js"></script>
+  <script src="js/jquery-ui-1.10.4.custom.min.js"></script>
+  <script src="js/highcharts.js"></script>
+  <script src="js/exporting.js"></script>
+  <script src="js/gray.js"></script>
+  <script src="js/typeahead.bundle.js"></script>
 
-<script>
-$(document).ready(function(){
-var substringMatcher = function(strs) {
-  return function findMatches(q, cb) {
-    var matches, substringRegex;
+  <script>
+  $(document).ready(function(){
+    var substringMatcher = function(strs) {
+      return function findMatches(q, cb) {
+        var matches, substringRegex;
 
     // an array that will be populated with substring matches
     matches = [];
@@ -72,449 +74,479 @@ $('#tvshowname2').typeahead({
   source: substringMatcher(states)
 });
 
+
+$(function() {
+  $( "#dialog" ).dialog({
+    autoOpen: false,
+    show: {
+      effect: "blind",
+      duration: 500
+    },
+    hide: {
+      effect: "explode",
+      duration: 500
+    }
+  });
+});
+
+
+
 $('#getData').click(function(){
-    var res1 = {};
-    var res2 = {}
-    var episodes_name_1 = [];
-    var episodes_name_2 = [];
-    var episodes_ratings_1 = [];
-    var episodes_ratings_1 = [];
-    var maxEpisodeLength = 0;
-    var headerstring = "";
-    var title1 = "title1";
-    var title2 = "title2";
-    var jsonString1 = [];
-    var jsonString2 = [];
+  var res1 = {};
+  var res2 = {}
+  var episodes_name_1 = [];
+  var episodes_name_2 = [];
+  var episodes_ratings_1 = [];
+  var episodes_ratings_1 = [];
+  var maxEpisodeLength = 0;
+  var headerstring = "";
+  var title1 = "title1";
+  var title2 = "title2";
+  var jsonString1 = [];
+  var jsonString2 = [];
 
-        $.ajax({
-            url:'http://180.179.212.200/tvtrend/search?name=' + $('#tvshowname1').val(),
-            type:'GET',
-            data :'',
-            dataType :'json',
-            async:false,
-            success : function(resData){
-                res1 = resData;
-                title = resData.title;
-                title1 = title;
-                usertitle = $('#tvshowname1').val();
-                outline = resData.outline;
-                rank = resData.rank;
-                cast = resData.cast;
-                year = resData.year;
-                genre = resData.genre;
-                runtime = resData.runtime;
-                if(typeof title == "undefined" && typeof rank == "undefined" && typeof year == "undefined")
-                {
-                    headerstring = "TV Show " + usertitle + " not found!";
-                    footerstring = "Please try again with different search query.";
-                }
-                else
-                {
-                    headerstring = headerstring + title + " (" + year + ")";
-                    footerstring = "<strong>" + title + " " + "</strong>" + "<strong>Cast:</strong> " + cast + "<strong>Genre:</strong> " + genre + "<strong>Runtime:</strong> " + runtime;
-                    episodes_name_1 = res1.episodes_name;
-                    episodes_ratings_1 = res1.episodes_ratings;
-                    maxEpisodeLength = episodes_name_1.length;
+  show1 = $('#tvshowname1').val()
+  show2 = $('#tvshowname2').val()
 
-                    jsonString1 = res1.episodes;
-                    for (var i=0; i<jsonString1.length; i++) {
-                        jsonEpisode = JSON.stringify(jsonString1[i])
-                        jsonString1[i] = jsonEpisode.replace("\"episode_rating\":", "\"y\":");
-                        episodeString = JSON.stringify(jsonString1[i])
-                        obj = jQuery.parseJSON(episodeString);
+  if(!show1 || 0 === show1.length || !show2 || 0 === show2.length){
 
-                        var rating = obj.substring(obj.length-6,obj.length-2);
-                        if (rating[0] === "\""){
-                            rating = rating.substring(1);
-                        }
-                        rating = Number(rating)
-                        jsonString1[i] = jQuery.parseJSON(jsonString1[i]);
-                        jsonString1[i]["y"] = rating;
-                    }
-                }
+    $( "#dialog" ).dialog( "open" );
+  }
+  else{
 
-                document.getElementById("headerstring").innerHTML=headerstring;
-                document.getElementById("footerstring1").innerHTML=footerstring;
+    $.ajax({
+      url:'http://180.179.212.200/tvtrend/search?name=' + $('#tvshowname1').val(),
+      type:'GET',
+      data :'',
+      dataType :'json',
+      async:false,
+      success : function(resData){
+        res1 = resData;
+        title = resData.title;
+        title1 = title;
+        usertitle = $('#tvshowname1').val();
+        outline = resData.outline;
+        rank = resData.rank;
+        cast = resData.cast;
+        year = resData.year;
+        genre = resData.genre;
+        runtime = resData.runtime;
+        if(typeof title == "undefined" && typeof rank == "undefined" && typeof year == "undefined")
+        {
+          headerstring = "TV Show " + usertitle + " not found!";
+          footerstring = "Please try again with different search query.";
+        }
+        else
+        {
+          headerstring = headerstring + title + " (" + year + ")";
+          footerstring = "<strong>" + title + " " + "</strong>" + "<strong>Cast:</strong> " + cast + "<strong>Genre:</strong> " + genre + "<strong>Runtime:</strong> " + runtime;
+          episodes_name_1 = res1.episodes_name;
+          episodes_ratings_1 = res1.episodes_ratings;
+          maxEpisodeLength = episodes_name_1.length;
+
+          jsonString1 = res1.episodes;
+          for (var i=0; i<jsonString1.length; i++) {
+            jsonEpisode = JSON.stringify(jsonString1[i])
+            jsonString1[i] = jsonEpisode.replace("\"episode_rating\":", "\"y\":");
+            episodeString = JSON.stringify(jsonString1[i])
+            obj = jQuery.parseJSON(episodeString);
+
+            var rating = obj.substring(obj.length-6,obj.length-2);
+            if (rating[0] === "\""){
+              rating = rating.substring(1);
             }
-        });
+            rating = Number(rating)
+            jsonString1[i] = jQuery.parseJSON(jsonString1[i]);
+            jsonString1[i]["y"] = rating;
+          }
+        }
 
-        $.ajax({
-            url:'http://180.179.212.200/tvtrend/search?name=' + $('#tvshowname2').val(),
-            type:'GET',
-            data :'',
-            dataType :'json',
-            async:false,
-            success : function(resData){
-                res2 = resData;
-                title = resData.title;
-                title2 = title;
-                usertitle = $('#tvshowname2').val();
-                outline = resData.outline;
-                rank = resData.rank;
-                cast = resData.cast;
-                year = resData.year;
-                genre = resData.genre;
-                runtime = resData.runtime;
-                if(typeof title == "undefined" && typeof rank == "undefined" && typeof year == "undefined")
-                {
-                    headerstring = "TV Show " + usertitle + " not found!";
-                    footerstring = "Please try again with different search query.";
-                }
-                else
-                {
-                    headerstring = headerstring + " vs. " + title + " (" + year + ")";
-                    footerstring = "<strong>" + title + " " + "</strong>" + "<strong>Cast:</strong> " + cast + "<strong>Genre:</strong> " + genre + "<strong>Runtime:</strong> " + runtime;
-                    episodes_name_2 = res2.episodes_name;
-                    episodes_ratings_2 = res2.episodes_ratings;
+        document.getElementById("headerstring").innerHTML=headerstring;
+        document.getElementById("footerstring1").innerHTML=footerstring;
+      }
+    });
 
-                    if(episodes_name_2.length > maxEpisodeLength)
-                    {
-                        maxEpisodeLength = episodes_name_2.length;
-                    }
+$.ajax({
+  url:'http://180.179.212.200/tvtrend/search?name=' + $('#tvshowname2').val(),
+  type:'GET',
+  data :'',
+  dataType :'json',
+  async:false,
+  success : function(resData){
+    res2 = resData;
+    title = resData.title;
+    title2 = title;
+    usertitle = $('#tvshowname2').val();
+    outline = resData.outline;
+    rank = resData.rank;
+    cast = resData.cast;
+    year = resData.year;
+    genre = resData.genre;
+    runtime = resData.runtime;
+    if(typeof title == "undefined" && typeof rank == "undefined" && typeof year == "undefined")
+    {
+      headerstring = "TV Show " + usertitle + " not found!";
+      footerstring = "Please try again with different search query.";
+    }
+    else
+    {
+      headerstring = headerstring + " vs. " + title + " (" + year + ")";
+      footerstring = "<strong>" + title + " " + "</strong>" + "<strong>Cast:</strong> " + cast + "<strong>Genre:</strong> " + genre + "<strong>Runtime:</strong> " + runtime;
+      episodes_name_2 = res2.episodes_name;
+      episodes_ratings_2 = res2.episodes_ratings;
 
-                    jsonString2 = res2.episodes;
-                    for (var i=0; i<jsonString2.length; i++) {
-                        jsonEpisode = JSON.stringify(jsonString2[i])
-                        jsonString2[i] = jsonEpisode.replace("\"episode_rating\":", "\"y\":");
-                        episodeString = JSON.stringify(jsonString2[i])
-                        obj = jQuery.parseJSON(episodeString);
+      if(episodes_name_2.length > maxEpisodeLength)
+      {
+        maxEpisodeLength = episodes_name_2.length;
+      }
 
-                        var rating = obj.substring(obj.length-6,obj.length-2);
-                        if (rating[0] === "\""){
-                            rating = rating.substring(1);
-                        }
-                        rating = Number(rating)
-                        jsonString2[i] = jQuery.parseJSON(jsonString2[i]);
-                        jsonString2[i]["y"] = rating;
-                    }
-                }
+      jsonString2 = res2.episodes;
+      for (var i=0; i<jsonString2.length; i++) {
+        jsonEpisode = JSON.stringify(jsonString2[i])
+        jsonString2[i] = jsonEpisode.replace("\"episode_rating\":", "\"y\":");
+        episodeString = JSON.stringify(jsonString2[i])
+        obj = jQuery.parseJSON(episodeString);
 
-                document.getElementById("headerstring").innerHTML=headerstring;
-                document.getElementById("footerstring2").innerHTML=footerstring;
-            }
-        });
+        var rating = obj.substring(obj.length-6,obj.length-2);
+        if (rating[0] === "\""){
+          rating = rating.substring(1);
+        }
+        rating = Number(rating)
+        jsonString2[i] = jQuery.parseJSON(jsonString2[i]);
+        jsonString2[i]["y"] = rating;
+      }
+    }
 
-        $('#container').highcharts({
-            chart: {
-                type: 'spline'
-            },
-            title: {
-                text: ' ',
+    document.getElementById("headerstring").innerHTML=headerstring;
+    document.getElementById("footerstring2").innerHTML=footerstring;
+  }
+});
+
+$('#container').highcharts({
+  chart: {
+    type: 'spline'
+  },
+  title: {
+    text: ' ',
                 x: -20 //center
-            },
-            subtitle: {
+              },
+              subtitle: {
                 text: ' ',
                 x: -20
-            },
-            xAxis: {
+              },
+              xAxis: {
                 title: {
-                    text: 'Number of Episodes'
+                  text: 'Number of Episodes'
                 },
                 min: 0,
                 max: maxEpisodeLength,
                 tickInterval: Math.ceil(maxEpisodeLength / 10)
-            },
-            yAxis: {
+              },
+              yAxis: {
                 title: {
-                    text: 'Ratings'
+                  text: 'Ratings'
                 },
                 tickInterval: 1,
                 // min: 0,
                 max: 10,
                 plotLines: [{
-                    value: 0,
-                    width: 1,
-                    color: '#808080'
+                  value: 0,
+                  width: 1,
+                  color: '#808080'
                 }]
-            },
-            tooltip: {
+              },
+              tooltip: {
                 formatter: function() {return ' ' +
                 'Rating: ' + this.point.y + '<br />' +
                 'Episode name: ' + this.point.episode_name + '<br />' +
                 'Episode number: ' + "S" + this.point.episode_id.split(".")[0] + "E" + this.point.episode_id.split(".")[1] + '<br />' +
                 'Votes: ' + this.point.episode_votes;
-                }
+              }
             },
             legend: {
-                layout: 'vertical',
-                align: 'right',
-                verticalAlign: 'middle',
-                borderWidth: 0
+              layout: 'vertical',
+              align: 'right',
+              verticalAlign: 'middle',
+              borderWidth: 0
             },
             series: [{
-                name: title1,
-                data: jsonString1
+              name: title1,
+              data: jsonString1
             },
             {
-                name: title2,
-                data: jsonString2
+              name: title2,
+              data: jsonString2
             }
             ]
-        });
-    });
+          });
+}
+});
 });
 
 </script>
-		<noscript>
-			<link rel="stylesheet" href="css/skel-noscript.css" />
-			<link rel="stylesheet" href="css/style.css" />
-			<link rel="stylesheet" href="css/style-desktop.css" />
-			<link rel="stylesheet" href="css/style-noscript.css" />
-		</noscript>
-		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie8.css" /><![endif]-->
-		<style type="text/css">
-			.inputs  {
-				background: #D3D3D3;
-				background: -moz-linear-gradient(top, #D3D3D3 0%, #D9D9D9 38%, #E5E5E5 82%, #E7E7E7 100%);
-				background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#D3D3D3), color-stop(38%,#D9D9D9), color-stop(82%,#E5E5E5), color-stop(100%,#E7E7E7));
-				background: -webkit-linear-gradient(top, #D3D3D3 0%,#D9D9D9 38%,#E5E5E5 82%,#E7E7E7 100%);
-				background: -o-linear-gradient(top, #D3D3D3 0%,#D9D9D9 38%,#E5E5E5 82%,#E7E7E7 100%);
-				background: -ms-linear-gradient(top, #D3D3D3 0%,#D9D9D9 38%,#E5E5E5 82%,#E7E7E7 100%);
-				background: linear-gradient(to bottom, #D3D3D3 0%,#D9D9D9 38%,#E5E5E5 82%,#E7E7E7 100%);
-				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d3d3d3', endColorstr='#e7e7e7',GradientType=0 );
-				display: auto;
-				padding: 6px 4px;
-				color: #444;
-				font-size: 1.2em;
-				text-shadow: 1px 1px 1px #FFF;
-				border: 1px solid rgba(16, 103, 133, 0.6);
-				box-shadow: 0px 0px 3px rgba(255, 255, 255, 0.5), inset 0px 1px 4px rgba(0, 0, 0, 0.2);
-				border-radius: 3px;
-				outline:0;
-				width:370px;
-			}
-		</style>
-		<style type="text/css">
-			/* custom font! */
-			/* ------------ */
+<noscript>
+ <link rel="stylesheet" href="css/skel-noscript.css" />
+ <link rel="stylesheet" href="css/style.css" />
+ <link rel="stylesheet" href="css/style-desktop.css" />
+ <link rel="stylesheet" href="css/style-noscript.css" />
+</noscript>
+<!--[if lte IE 8]><link rel="stylesheet" href="css/ie8.css" /><![endif]-->
+<style type="text/css">
+.inputs  {
+  background: #D3D3D3;
+  background: -moz-linear-gradient(top, #D3D3D3 0%, #D9D9D9 38%, #E5E5E5 82%, #E7E7E7 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#D3D3D3), color-stop(38%,#D9D9D9), color-stop(82%,#E5E5E5), color-stop(100%,#E7E7E7));
+  background: -webkit-linear-gradient(top, #D3D3D3 0%,#D9D9D9 38%,#E5E5E5 82%,#E7E7E7 100%);
+  background: -o-linear-gradient(top, #D3D3D3 0%,#D9D9D9 38%,#E5E5E5 82%,#E7E7E7 100%);
+  background: -ms-linear-gradient(top, #D3D3D3 0%,#D9D9D9 38%,#E5E5E5 82%,#E7E7E7 100%);
+  background: linear-gradient(to bottom, #D3D3D3 0%,#D9D9D9 38%,#E5E5E5 82%,#E7E7E7 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d3d3d3', endColorstr='#e7e7e7',GradientType=0 );
+  display: auto;
+  padding: 6px 4px;
+  color: #444;
+  font-size: 1.2em;
+  text-shadow: 1px 1px 1px #FFF;
+  border: 1px solid rgba(16, 103, 133, 0.6);
+  box-shadow: 0px 0px 3px rgba(255, 255, 255, 0.5), inset 0px 1px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+  outline:0;
+  width:370px;
+}
+</style>
+<style type="text/css">
+/* custom font! */
+/* ------------ */
 
-			@font-face {
-			  font-family: Prociono;
-			  src: url(../font/Prociono-Regular-webfont.ttf);
-			}
+@font-face {
+ font-family: Prociono;
+ src: url(../font/Prociono-Regular-webfont.ttf);
+}
 
-			/* scaffolding */
-			/* ----------- */
+/* scaffolding */
+/* ----------- */
 
-			html {
-			  overflow-y: scroll;
-			  *overflow-x: hidden;
-			}
+html {
+ overflow-y: scroll;
+ *overflow-x: hidden;
+}
 
-			.container {
-			  max-width: 750px;
-			  margin: 0 auto;
-			  text-align: center;
-			}
+.container {
+ max-width: 750px;
+ margin: 0 auto;
+ text-align: center;
+}
 
-			.tt-dropdown-menu,
-			.gist {
-			  text-align: left;
-			}
+.tt-dropdown-menu,
+.gist {
+ text-align: left;
+}
 
-			/* base styles */
-			/* ----------- */
+/* base styles */
+/* ----------- */
 
-			html {
-			  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-			  font-size: 18px;
-			  line-height: 1.2;
-			  color: #333;
-			}
+html {
+ font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+ font-size: 18px;
+ line-height: 1.2;
+ color: #333;
+}
 
-			a {
-			  color: #03739c;
-			  text-decoration: none;
-			}
+a {
+ color: #03739c;
+ text-decoration: none;
+}
 
-			.table-of-contents li {
-			  display: inline-block;
-			  *display: inline;
-			  zoom: 1;
-			}
+.table-of-contents li {
+ display: inline-block;
+ *display: inline;
+ zoom: 1;
+}
 
-			.table-of-contents li a {
-			  font-size: 16px;
-			  color: #fff;
-			}
+.table-of-contents li a {
+ font-size: 16px;
+ color: #fff;
+}
 
-			.title,
-			.example-name {
-			  font-family: Prociono;
-			}
+.title,
+.example-name {
+ font-family: Prociono;
+}
 
-			p + p {
-			  margin: 30px 0 0 0;
-			}
+p + p {
+ margin: 30px 0 0 0;
+}
 
-			/* site theme */
-			/* ---------- */
+/* site theme */
+/* ---------- */
 
-			.title {
-			  margin: 20px 0 0 0;
-			  font-size: 64px;
-			}
+.title {
+ margin: 20px 0 0 0;
+ font-size: 64px;
+}
 
-			.example {
-			  padding: 30px 0;
-			}
+.example {
+ padding: 30px 0;
+}
 
-			.example-name {
-			  margin: 20px 0;
-			  font-size: 32px;
-			}
+.example-name {
+ margin: 20px 0;
+ font-size: 32px;
+}
 
-			.demo {
-			  position: relative;
-			  *z-index: 1;
-			  margin: 50px 0;
-			}
+.demo {
+ position: relative;
+ *z-index: 1;
+ margin: 50px 0;
+}
 
-			.typeahead,
-			.tt-query,
-			.tt-hint {
-			  width: 396px;
-			  height: 30px;
-			  padding: 8px 12px;
-			  font-size: 24px;
-			  line-height: 30px;
-			  border: 2px solid #ccc;
-			  -webkit-border-radius: 8px;
-			     -moz-border-radius: 8px;
-			          border-radius: 8px;
-			  outline: none;
-			}
+.typeahead,
+.tt-query,
+.tt-hint {
+ width: 396px;
+ height: 30px;
+ padding: 8px 12px;
+ font-size: 24px;
+ line-height: 30px;
+ border: 2px solid #ccc;
+ -webkit-border-radius: 8px;
+ -moz-border-radius: 8px;
+ border-radius: 8px;
+ outline: none;
+}
 
-			.typeahead {
-			  background-color: #fff;
-			}
+.typeahead {
+ background-color: #fff;
+}
 
-			.typeahead:focus {
-			  border: 2px solid #0097cf;
-			}
+.typeahead:focus {
+ border: 2px solid #0097cf;
+}
 
-			.tt-query {
-			  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-			     -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-			          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-			}
+.tt-query {
+ -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+ -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+ box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
 
-			.tt-hint {
-			  color: #000
-			}
+.tt-hint {
+ color: #000
+}
 
-			.tt-dropdown-menu {
-			  width: 422px;
-			  margin-top: 12px;
-			  padding: 8px 0;
-			  background-color: #fff;
-			  border: 1px solid #ccc;
-			  border: 1px solid rgba(0, 0, 0, 0.2);
-			  -webkit-border-radius: 8px;
-			     -moz-border-radius: 8px;
-			          border-radius: 8px;
-			  -webkit-box-shadow: 0 5px 10px rgba(0,0,0,.2);
-			     -moz-box-shadow: 0 5px 10px rgba(0,0,0,.2);
-			          box-shadow: 0 5px 10px rgba(0,0,0,.2);
-			}
+.tt-dropdown-menu {
+ width: 422px;
+ margin-top: 12px;
+ padding: 8px 0;
+ background-color: #fff;
+ border: 1px solid #ccc;
+ border: 1px solid rgba(0, 0, 0, 0.2);
+ -webkit-border-radius: 8px;
+ -moz-border-radius: 8px;
+ border-radius: 8px;
+ -webkit-box-shadow: 0 5px 10px rgba(0,0,0,.2);
+ -moz-box-shadow: 0 5px 10px rgba(0,0,0,.2);
+ box-shadow: 0 5px 10px rgba(0,0,0,.2);
+}
 
-			.tt-suggestion {
-			  padding: 3px 20px;
-			  font-size: 18px;
-			  line-height: 24px;
-			  color: #000;
-			}
+.tt-suggestion {
+ padding: 3px 20px;
+ font-size: 18px;
+ line-height: 24px;
+ color: #000;
+}
 
-			.tt-suggestion.tt-cursor {
-			  color: #fff;
-			  background-color: #0097cf;
+.tt-suggestion.tt-cursor {
+ color: #fff;
+ background-color: #0097cf;
 
-			}
+}
 
-			.tt-suggestion p {
-			  margin: 0;
-			}
+.tt-suggestion p {
+ margin: 0;
+}
 
-			.gist {
-			  font-size: 14px;
-			}
+.gist {
+ font-size: 14px;
+}
 
-			/* example specific styles */
-			/* ----------------------- */
+/* example specific styles */
+/* ----------------------- */
 
-			#custom-templates .empty-message {
-			  padding: 5px 10px;
-			 text-align: center;
-			}
+#custom-templates .empty-message {
+ padding: 5px 10px;
+ text-align: center;
+}
 
-			#multiple-datasets .league-name {
-			  margin: 0 20px 5px 20px;
-			  padding: 3px 0;
-			  border-bottom: 1px solid #ccc;
-			}
+#multiple-datasets .league-name {
+ margin: 0 20px 5px 20px;
+ padding: 3px 0;
+ border-bottom: 1px solid #ccc;
+}
 
-			#scrollable-dropdown-menu .tt-dropdown-menu {
-			  max-height: 150px;
-			  overflow-y: auto;
-			}
+#scrollable-dropdown-menu .tt-dropdown-menu {
+ max-height: 150px;
+ overflow-y: auto;
+}
 
-			#rtl-support .tt-dropdown-menu {
-			  text-align: right;
-			}
-		</style>
-	</head>
-	<body class="homepage">
+#rtl-support .tt-dropdown-menu {
+ text-align: right;
+}
+</style>
+</head>
+<body class="homepage">
 
-		<!-- Header -->
-			<div id="header">
+  <!-- Header -->
+  <div id="header">
 
-				<!-- Inner -->
-					<div class="inner">
-						<header>
-							<h1><a href="#" id="logo">TV Trends</a></h1>
-							<hr />
-							<span class="byline">Compare head-to-head ratings of two TV shows</span>
-						</header>
-						<footer>
-							<div ><input type="text" class="inputs" name = "tvshowname1" id ="tvshowname1" size="35" style="text-align: center"/></div></br>
-							<div ><input type="text" class="inputs"name = "tvshowname2" id ="tvshowname2" size="35" style="text-align: center"/></div></br>
-							<a href="#banner" id="getData" class="button circle scrolly">Submit</a>
-							<!-- <div class="inputBtn"><button id="getData">Get Data</button></div> -->
-							</div>
-						</footer>
-					</div>
+    <!-- Inner -->
+    <div class="inner">
+      <header>
+       <h1><a href="#" id="logo">TV Trends</a></h1>
+       <hr />
+       <span class="byline">Compare head-to-head ratings of two TV shows</span>
+     </header>
+     <footer>
+       <div ><input type="text" class="inputs" name = "tvshowname1" id ="tvshowname1" size="35" style="text-align: center"/></div></br>
+       <div ><input type="text" class="inputs"name = "tvshowname2" id ="tvshowname2" size="35" style="text-align: center"/></div></br>
+       <a href="#banner" id="getData" class="button circle scrolly">Submit</a>
+       <!-- <div class="inputBtn"><button id="getData">Get Data</button></div> -->
+     </div>
+   </footer>
+ </div>
 
-				<!-- Nav -->
-					<nav id="nav">
-						<ul>
-							<li><a href="index.html" style="color: #fff;">Home</a></li>
-							<li><a href="compare.html" style="color: #fff;">Compare Shows</a></li>
-						</ul>
-					</nav>
+ <!-- Nav -->
+ <nav id="nav">
+  <ul>
+   <li><a href="index.html" style="color: #fff;">Home</a></li>
+   <li><a href="compare.html" style="color: #fff;">Compare Shows</a></li>
+ </ul>
+</nav>
 
-			</div>
+</div>
 
-		<!-- Banner -->
-			<div id="banner">
-				<h2><p id="headerstring"></p></h2>
-				<p id="footerstring1"></p>
-				<p id="footerstring2"></p>
-				<div id="getData"></div>
-				<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
-			</div>
+<!-- Banner -->
+<div id="banner">
+  <h2><p id="headerstring"></p></h2>
+  <p id="footerstring1"></p>
+  <p id="footerstring2"></p>
+  <div id="getData"></div>
+  <div id="dialog" title="Error">
+    Please Enter two TV Shows!
+  </div>
+  <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+</div>
 
-		<!-- Footer -->
-			<div id="footer">
-				<div class="container">
+<!-- Footer -->
+<div id="footer">
+  <div class="container">
 
-							<!-- Contact -->
-								<section class="contact">
-									<header>
-										<h3>Awesome app by awesome people!</h3>
-									</header>
-									<p>Brought to you by <a href="http://github.com/jyotiska">Jyotiska NK</a> and <a href="http://in.linkedin.com/in/dipanzan">Dipanjan Sarkar</a></p>
-									<ul class="icons">
-										Powered by <a href="http://www.dataweave.in">DataWeave</a></br><img src="http://static.tumblr.com/koywj78/MrLm1ujuq/dataweavelogo.png"></img>
+   <!-- Contact -->
+   <section class="contact">
+     <header>
+      <h3>Awesome app by awesome people!</h3>
+    </header>
+    <p>Brought to you by <a href="http://github.com/jyotiska">Jyotiska NK</a> and <a href="http://in.linkedin.com/in/dipanzan">Dipanjan Sarkar</a></p>
+    <ul class="icons">
+      Powered by <a href="http://www.dataweave.in">DataWeave</a></br><img src="http://static.tumblr.com/koywj78/MrLm1ujuq/dataweavelogo.png"></img>
 										<!-- <li><a href="#" class="fa fa-twitter solo"><span>Twitter</span></a></li>
 										<li><a href="#" class="fa fa-facebook solo"><span>Facebook</span></a></li>
 										<li><a href="#" class="fa fa-google-plus solo"><span>Google+</span></a></li>
@@ -523,9 +555,9 @@ $('#getData').click(function(){
 										<li><a href="#" class="fa fa-linkedin solo"><span>Linkedin</span></a></li> -->
 									</ul>
 								</section>
-						</div>
-					</div>
-				</div>
-			</div>
-	</body>
-</html>
+              </div>
+            </div>
+          </div>
+        </div>
+      </body>
+      </html>
