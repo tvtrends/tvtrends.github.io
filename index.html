@@ -136,7 +136,7 @@ $('#getData').click(function(){
                 },
                 min: 0,
                 max: episodes_name.length,
-                tickInterval: ~~(episodes_name.length / 10)
+                tickInterval: Math.ceil(episodes_name.length / 10)
             },
             yAxis: {
                 title: {

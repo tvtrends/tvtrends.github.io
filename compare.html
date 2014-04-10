@@ -212,7 +212,7 @@ $('#getData').click(function(){
                 },
                 min: 0,
                 max: maxEpisodeLength,
-                tickInterval: ~~(maxEpisodeLength / 10)
+                tickInterval: Math.ceil(maxEpisodeLength / 10)
             },
             yAxis: {
                 title: {
